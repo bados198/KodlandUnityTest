@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform rifleStart;
     
 
-    [SerializeField] private GameObject GameOver;
-    [SerializeField] private GameObject Victory;
+    [SerializeField] private GameObject GameOver; //oyun bitişi ile alakalı, ama ayarlamasını yapmadım. karakterin canı 0 olduğunda kullanılabilir
+    [SerializeField] private GameObject Victory; //oyun kazanma, tag ile düşman sayısı sayılıp düşman sayısı 0 olunca ayarlanabilir
 
     public float health = 0;
 
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         {
             Lost();
         }
-        //HpText.text = health.ToString(); geçici süreliğine UI'da hata aldığım için elemanı kapattım
+        //HpText.text = health.ToString(); can ayarlaması yapmadığım için geçici süreliğine elemanı kapattım, enemy karakterlerine player değince kaybettin koşulu ile yapılabilir
     }
 
     public void Win() //kazanma
@@ -59,8 +59,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal"); //karakter hareketi: yatay
+        float moveVertical = Input.GetAxis("Vertical"); //karakter hareket: dikey
 
         direction = new Vector3(moveHorizontal, 0.0f, moveVertical); //karakter hareketlerini alma
         direction = transform.TransformDirection(direction); 
@@ -71,8 +71,17 @@ public class PlayerController : MonoBehaviour
             buf.transform.position = rifleStart.position;
             buf.GetComponent<Bullet>().setDirection(transform.forward);
             buf.transform.rotation = transform.rotation;
+
+            Collider[] tar = Physics.OverlapSphere(transform.position, 2);
+            foreach (var item in tar)
+            {
+                if (item.tag == "Enemy")
+                {
+                    Destroy(item.gameObject);
+                }
+            }
         }
-        
+        /* fare sağ tuşa göre yapılmış.
         if (Input.GetMouseButtonDown(1))
         {
             Collider[] tar = Physics.OverlapSphere(transform.position, 2);
@@ -84,17 +93,19 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        */
 
+        /* can alınacak bir nesne yok, o yüzden bu kodu devre dışı bıraktım
         Collider[] targets = Physics.OverlapSphere(transform.position, 3);
         foreach (var item in targets)
         {
-            /*
+            
             if (item.tag == "Heal")
             {
                 ChangeHealth(50);
                 Destroy(item.gameObject);
             }
-            */
+            
             if (item.tag == "Finish")
             {
                 Win();
@@ -104,6 +115,7 @@ public class PlayerController : MonoBehaviour
                 Lost();
             }
         }
+        */
     }
 
     void FixedUpdate() //her update fonksiyonu sonrasında update'de oluşacak işlemlerde düzeltilme işlemleri

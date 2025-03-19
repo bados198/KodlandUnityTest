@@ -267,7 +267,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -791,7 +791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2679025275084089055, guid: 6f803e3bff28973419d938af244cea97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 829.1257
+      value: 828.83
       objectReference: {fileID: 0}
     - target: {fileID: 2679025275084089055, guid: 6f803e3bff28973419d938af244cea97, type: 3}
       propertyPath: m_LocalPosition.y
@@ -831,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3076837849501361231, guid: 6f803e3bff28973419d938af244cea97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.81
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3076837849501361231, guid: 6f803e3bff28973419d938af244cea97, type: 3}
       propertyPath: m_LocalPosition.y
@@ -839,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3076837849501361231, guid: 6f803e3bff28973419d938af244cea97, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.26
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 5698765064266483987, guid: 6f803e3bff28973419d938af244cea97, type: 3}
       propertyPath: Victory
