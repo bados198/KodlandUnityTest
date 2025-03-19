@@ -1,14 +1,14 @@
-2022.3.29f1 sürümü kullanıldı.
+# 2022.3.29f1 sürümü kullanıldı.
 
-Projede Yapılan Düzenlemeler:
-Enemy, Enemy1 ve Enemy2'ye Rigidbody ve CapsuleCollider eklemesi yapıldı.
-Player nesnesinin Prefab'i alındı
-RifleStart transform'u ayarlanmamış (Karakterin elinde silah olmadığı için gerekli olmayabilir, ama elinde silah olsaydı o konumdan çıkardı)
-GameOver ve Victory Prefab'i ayarlanmamış. (Oyunda şu anlık o durumu kapattım, ama Enemy tag'ine sahip düşman sayısına göre Victory ve GameOver yapılabilir)
-Enemy2 ve Enemy1 nesnesinde CharacterController nesnesi eklenmiş, onun yerine CapsuleCollider kullanmak daha mantıklı olabilir.
-Enemy, Enemy1 ve Enemy2'de Tag yoktu, düşman-karakter ayrımı yapabilmek için Tag gerekli, bu şekilde item tag'lerine göre ayrım yapıp kontrol edebiliyor ve nesneleri yok edebiliyoruz.
+## Projede Yapılan Düzenlemeler:
+-  Enemy, Enemy1 ve Enemy2'ye Rigidbody ve CapsuleCollider eklemesi yapıldı.
+-  Player nesnesinin Prefab'i alındı
+-  RifleStart transform'u ayarlanmamış (Karakterin elinde silah olmadığı için gerekli olmayabilir, ama elinde silah olsaydı o konumdan çıkardı)
+-  GameOver ve Victory Prefab'i ayarlanmamış. (Oyunda şu anlık o durumu kapattım, ama Enemy tag'ine sahip düşman sayısına göre Victory ve GameOver yapılabilir)
+-  Enemy2 ve Enemy1 nesnesinde CharacterController nesnesi eklenmiş, onun yerine CapsuleCollider kullanmak daha mantıklı olabilir.
+-  Enemy, Enemy1 ve Enemy2'de Tag yoktu, düşman-karakter ayrımı yapabilmek için Tag gerekli, bu şekilde item tag'lerine göre ayrım yapıp kontrol edebiliyor ve nesneleri yok edebiliyoruz.
 
-Kodlarda Yapılan Değişiklikler:
+## Kodlarda Yapılan Değişiklikler:
 PlayerLook kısmında PlayerArms yerine Player'a rotation ayarlaması yapıldı.
 PlayerController kısmında karakterin canı oyun başında ChangeHealth(0) yapılmış, bu oyun başında 100'e ayarlandı (eğer bunu yapmasaydık oyun bitti koşulu tetiklenirdi ve UI'da onu görüyor olurduk oyunu kaybetmiş olurduk)
 Bullet script dosyasında tag'lere göre vurma kısmı koşulu ayarlanmış ama Destroy(gameObject) yoktu, yani mermimiz düşmanı vursa bile düşman yok olmayacaktı
